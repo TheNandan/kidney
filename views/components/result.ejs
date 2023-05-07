@@ -1,0 +1,10 @@
+<div class="container">
+  <% if (result) { %>
+    <div class="alert alert-<%= result.type %> alert-dismissible border-0 shadow-sm" role="alert">
+      <strong class="text-center"><h4><%= result.message %></h4></strong><hr>
+        <h1 class="text-center"><%= result.result %></h1>
+        <h5 class="text-center"><%= result.desc %></h5>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% } %>   
+</div>

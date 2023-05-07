@@ -1,0 +1,21 @@
+<div class="container mb-5 ">
+    <div class="card shadow border border-0 px-5 py-5 bg-primary-subtle">
+            <div class="mb-3">
+                <p class="display-6 text-primary">Upload File : Drag and Drop or Browse here</p>
+            </div>
+            <!--  -->
+            <form action="/predict" method="post" enctype="multipart/form-data" >
+                <div class="mb-3" id="dropit">
+                    <input type="file" name="ctscan" class="form-control dropfile" id="dropfile" required>
+                </div> 
+                <% if (profile) { %>
+                    <input type="text" name="username" value="<%= profile.username %>" id="username" hidden>
+                    <input type="text" name="role" value="<%= profile.role %>" id="role" hidden>
+                    <input type="text" name="email" value="<%= profile.email %>" id="email" hidden>
+                <% } %>
+                <div class="text-center">
+                    <input type="submit" value="Submit" class="btn btn-primary" >
+                </div>
+            </form>
+    </div>
+</div>

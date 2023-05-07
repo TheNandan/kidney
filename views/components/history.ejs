@@ -1,0 +1,50 @@
+
+<div class="container">
+    <div class="container mb-3" id="history">
+        <h1 class="text-center text-primary my-3">Search History <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24"><g transform="rotate(90 12 12)"><path fill="blue" d="m18.9 20.3l-5.6-5.6q-.75.6-1.725.95T9.5 16q-2.725 0-4.612-1.888T3 9.5q0-2.725 1.888-4.612T9.5 3q2.725 0 4.612 1.888T16 9.5q0 1.1-.35 2.075T14.7 13.3l5.625 5.625q.275.275.275.675t-.3.7q-.275.275-.7.275t-.7-.275ZM9.5 14q1.875 0 3.188-1.313T14 9.5q0-1.875-1.313-3.188T9.5 5Q7.625 5 6.312 6.313T5 9.5q0 1.875 1.313 3.188T9.5 14Z"/></g></svg></h1>
+<h5 class="text-danger text-center mb-3">Total <%= hcount %> History Found !</h5>
+    </div>
+
+    <% if (hcount == 0) { %>
+        <div class="container bg-primary-subtle mt-3 rounded text-center py-5 px-5">
+            <div class="box border-primary rounded py-5 px-5 border-opacity-50" style="border-style: dashed;">
+                <h1 class="text-primary">Sorry ! No History found.</h1>
+            </div>
+        </div>
+    <% }%>
+       
+    <% if (hist) { %>
+<% hist.forEach(hist => { %>
+    <div class="container">
+        <div class="card bg-primary-subtle border-0 mb-3 shadow-sm">
+            <div class="card-title mt-3">
+                <div class="row text-center">
+                    <div class="col">
+                        <h5 class="text-primary"><%= hist.username %></h5>
+                    </div>
+                    <div class="col d-flex flex-row justify-content-evenly">
+                        <h6>
+                            <span class="text-primary">Date : </span>
+                            <span class="text-dark"><%= hist.PredictedOn %></span>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col">
+                        <img src="./<%= hist.image %>" width="200px">
+                    </div>
+                    <div class="col">
+                        <h6 class="text-primary">Prediction</h6>
+                        <p class="text-success"><%= hist.result %></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<% }) %>
+        
+    <% } %>
+  
+</div> 
